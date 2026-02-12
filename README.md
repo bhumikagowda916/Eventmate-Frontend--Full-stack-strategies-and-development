@@ -111,6 +111,20 @@ The compiled files will be generated inside the `dist/` directory.
 
 ---
 
+## Frontend Demo
+
+A short walkthrough of the EventMate frontend interface is available below:
+
+[Watch the Frontend Demo](https://drive.google.com/file/d/1qpDYXcSo4hjCZfB-wCjnqXumwpbgLBIe/view?usp=drive_link)
+
+The demonstration highlights:
+- User interface design
+- Event browsing functionality
+- Booking workflow interaction
+- Integration with backend API
+
+---
+
 ## Academic Context
 
 This project was developed as part of the Full-Stack Strategies and Development module.
