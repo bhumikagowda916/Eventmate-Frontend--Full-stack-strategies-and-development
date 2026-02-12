@@ -1,0 +1,42 @@
+/*
+  Test Report Component Styles
+  ----------------------------
+  Styles used for displaying automated test results in a clear,
+  readable table format, highlighting pass and fail outcomes.
+*/
+
+/* Container for the test report section */
+.test-report {
+  padding: 16px;
+}
+
+/* Base table styling for test result display */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+/* Table cell styling for structure and readability */
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  vertical-align: top;
+}
+
+/* Styling applied to passing test results */
+.pass {
+  color: #0a7a0a;
+}
+
+/* Styling applied to failing test results */
+.fail {
+  color: #b00020;
+}
+
+/* Button styling for test actions (e.g. run tests) */
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}

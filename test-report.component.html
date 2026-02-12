@@ -1,0 +1,68 @@
+<!--
+  Test Report Component Template
+  ------------------------------
+  Displays the results of custom front-end tests executed against
+  the live back-end API. Test outcomes are presented in a table
+  with clear PASS/FAIL indicators.
+-->
+
+<div class="test-report">
+
+  <!-- Page heading -->
+  <h2>Test Report</h2>
+
+  <!-- Brief description of the test report functionality -->
+  <p>
+    This page runs custom front-end tests against the live API
+    and shows PASS/FAIL outcomes.
+  </p>
+
+  <!--
+    Button to trigger execution of all front-end tests
+    Disabled while tests are running to prevent duplicate execution
+  -->
+  <button
+    (click)="runAllTests()"
+    [disabled]="running">
+    {{ running ? 'Running...' : 'Run Tests Again' }}
+  </button>
+
+  <hr />
+
+  <!--
+    Test results table
+    Dynamically populated based on the results array
+  -->
+  <table>
+    <thead>
+      <tr>
+        <th>Test</th>
+        <th>Status</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Iterates over test results and displays each outcome -->
+      <tr *ngFor="let r of results">
+        <td>{{ r.name }}</td>
+
+        <!-- Status displayed with conditional styling -->
+        <td>
+          <strong [ngClass]="r.status === 'PASS' ? 'pass' : 'fail'">
+            {{ r.status }}
+          </strong>
+        </td>
+
+        <!-- Additional information about the test outcome -->
+        <td>{{ r.details }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Message displayed when no tests have been run yet -->
+  <p *ngIf="results.length === 0">
+    No test results yet.
+  </p>
+
+</div>
