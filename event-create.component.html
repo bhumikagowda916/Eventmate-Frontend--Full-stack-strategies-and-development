@@ -1,0 +1,104 @@
+<!--
+  Create Event Component Template
+  -------------------------------
+  This template provides a form for creating new events.
+  It uses Angular template-driven forms with two-way data binding
+  to capture user input and submit structured event data to the back-end API.
+-->
+
+<div class="form-page">
+
+  <!-- Page heading indicating event creation -->
+  <h2 class="page-title">Create New Event</h2>
+
+  <!-- Card container to visually group the event creation form -->
+  <div class="form-card">
+
+    <!--
+      Event creation form
+      - Uses ngSubmit to trigger the submit() method in the component
+      - Prevents full page reload and submits data client-side
+    -->
+    <form (ngSubmit)="submit()">
+
+      <!-- Event name (required) -->
+      <div class="form-group">
+        <label>Event Name *</label>
+        <input type="text" [(ngModel)]="form.name" name="name" required />
+      </div>
+
+      <!-- City where the event takes place (required) -->
+      <div class="form-group">
+        <label>City *</label>
+        <input type="text" [(ngModel)]="form.city" name="city" required />
+      </div>
+
+      <!-- Event category used for filtering and searching (required) -->
+      <div class="form-group">
+        <label>Category *</label>
+        <input type="text" [(ngModel)]="form.category" name="category" required />
+      </div>
+
+      <!-- Event date selection (required) -->
+      <div class="form-group">
+        <label>Date *</label>
+        <input type="date" [(ngModel)]="form.date" name="date" required />
+      </div>
+
+      <!-- Optional ticket price for the event -->
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" [(ngModel)]="form.price" name="price" />
+      </div>
+
+      <!-- Optional number of available seats -->
+      <div class="form-group">
+        <label>Available Seats</label>
+        <input type="number" [(ngModel)]="form.available_seats" name="available_seats" />
+      </div>
+
+      <!-- Optional tags to support categorisation and searching -->
+      <div class="form-group">
+        <label>Tags (comma separated)</label>
+        <input type="text" [(ngModel)]="form.tags" name="tags" />
+      </div>
+
+      <!--
+        Optional location input
+        If longitude and latitude are not provided,
+        a default UK location is used by the application.
+      -->
+      <fieldset class="location-box">
+        <legend>Location (optional)</legend>
+        <p>If left blank, a default UK location is used.</p>
+
+        <div class="location-fields">
+
+          <!-- Longitude coordinate for geolocation-based features -->
+          <input
+            type="number"
+            placeholder="Longitude (-180 to 180)"
+            [(ngModel)]="form.longitude"
+            name="longitude"
+          />
+
+          <!-- Latitude coordinate for geolocation-based features -->
+          <input
+            type="number"
+            placeholder="Latitude (-90 to 90)"
+            [(ngModel)]="form.latitude"
+            name="latitude"
+          />
+
+        </div>
+      </fieldset>
+
+      <!-- Submit button to create a new event -->
+      <button type="submit" class="primary-btn">
+        Create Event
+      </button>
+
+    </form>
+
+  </div>
+</div>

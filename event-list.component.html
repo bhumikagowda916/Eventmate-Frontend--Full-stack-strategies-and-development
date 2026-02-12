@@ -1,0 +1,145 @@
+<!--
+  Event List Component Template
+  -----------------------------
+  Displays a list of available events retrieved from the back-end API.
+  Includes filtering, pagination, conditional actions, and optional
+  map-based location display for each event.
+-->
+
+<div class="event-list-page">
+
+  <!-- Page heading -->
+  <h2 class="page-title">Available Events</h2>
+
+  <!--
+    Filter controls
+    Allows users to narrow results by category, city, and maximum price.
+  -->
+  <div class="filters">
+
+    <!-- Category filter -->
+    <input
+      type="text"
+      placeholder="Category"
+      [(ngModel)]="filters.category"
+    />
+
+    <!-- City filter -->
+    <input
+      type="text"
+      placeholder="City"
+      [(ngModel)]="filters.city"
+    />
+
+    <!-- Maximum price filter -->
+    <input
+      type="number"
+      placeholder="Max Price"
+      [(ngModel)]="filters.max_price"
+    />
+
+    <!--
+      Search button
+      Disabled while data is loading to prevent duplicate requests
+    -->
+    <button
+      class="btn search-btn"
+      [disabled]="loading"
+      (click)="search()">
+      Search
+    </button>
+
+    <!-- Resets all filters and reloads events -->
+    <button
+      type="button"
+      class="btn reset-btn"
+      (click)="reset()">
+      Reset
+    </button>
+
+  </div>
+
+  <!--
+    Event cards
+    Iterates over the events array and renders each event dynamically
+  -->
+  <div
+    class="event-card"
+    *ngFor="let event of events"
+  >
+
+    <!-- Event title -->
+    <h3 class="event-title">{{ event.name }}</h3>
+
+    <!-- Event details -->
+    <p><strong>Category:</strong> {{ event.category }}</p>
+    <p><strong>City:</strong> {{ event.city || 'Not specified' }}</p>
+    <p><strong>Date:</strong> {{ event.date | date:'longDate' }}</p>
+    <p><strong>Price:</strong> £{{ event.price }}</p>
+
+    <!--
+      Location toggle
+      Displays a button only if location data is available
+    -->
+    <div class="event-actions">
+      <button
+        *ngIf="event.mapCenter"
+        (click)="toggleMap(event)">
+        {{ event.showMap ? 'Hide Location' : 'View Location' }}
+      </button>
+    </div>
+
+    <!--
+      Google Maps display
+      Shown conditionally when the user chooses to view the event location
+    -->
+    <google-map
+      *ngIf="event.showMap && event.mapCenter"
+      height="180px"
+      width="100%"
+      [center]="event.mapCenter"
+      [zoom]="13">
+
+      <map-marker [position]="event.mapCenter"></map-marker>
+
+    </google-map>
+
+    <!--
+      Event actions
+      Delete option is only available to authenticated users
+    -->
+    <div class="event-actions">
+      <button
+        *ngIf="authService.isLoggedIn()"
+        class="btn delete-btn"
+        type="button"
+        (click)="deleteEvent(event._id)">
+        Delete
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!--
+  Pagination control
+  Loads additional events when available
+-->
+<button
+  class="btn load-more-btn"
+  type="button"
+  (click)="loadMore()"
+  *ngIf="!loading && (!isSearching || events.length > 0)">
+  Load More
+</button>
+
+<!-- Loading indicator -->
+<p *ngIf="loading" class="loading-text">
+  Loading events...
+</p>
+
+<!-- Message displayed when no events match the current filters -->
+<p *ngIf="events.length === 0 && !loading" class="no-results">
+  No events match your search criteria.
+</p>

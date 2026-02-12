@@ -1,0 +1,100 @@
+/*
+  Create Event Component Styles
+  -----------------------------
+  Defines the layout and visual styling for the event creation form.
+  The design focuses on clarity, spacing, and usability for data entry.
+*/
+
+/* Main container used to centre the form on the page */
+.form-page {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* Page title styling for clear visual hierarchy */
+.page-title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+/* Card-style container for the event creation form */
+.form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Groups labels and inputs together with consistent spacing */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+/* Label styling for improved readability */
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #1f2937;
+}
+
+/* Input field styling for usability and visual consistency */
+.form-group input {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+}
+
+/* Container for optional geolocation inputs */
+.location-box {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+/* Legend styling to visually distinguish the location section */
+.location-box legend {
+  font-weight: 600;
+  color: #0f766e;
+}
+
+/* Helper text explaining optional location behaviour */
+.location-box p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.7rem;
+}
+
+/* Layout for longitude and latitude input fields */
+.location-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Ensures both coordinate inputs share available space evenly */
+.location-fields input {
+  flex: 1;
+}
+
+/* Primary action button used to submit the event creation form */
+.primary-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background: #0f766e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Hover state to provide visual feedback on interaction */
+.primary-btn:hover {
+  background: #115e59;
+}

@@ -1,0 +1,130 @@
+/*
+  Event List Component Styles
+  ---------------------------
+  Styles for displaying the event listing page, including
+  filters, event cards, action buttons, and map previews.
+  The layout is designed for clarity and ease of browsing.
+*/
+
+/* Page wrapper providing spacing around the content */
+.event-list-page {
+  padding: 40px 80px;
+}
+
+/* Page title styling for visual hierarchy */
+.page-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* Container for search and filter inputs */
+.filters {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Shared styling for filter input fields */
+.filters input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  min-width: 160px;
+}
+
+/* Base button styling used across the page */
+.btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Button used to trigger search/filter actions */
+.search-btn {
+  background-color: #0d9488;
+  color: #ffffff;
+}
+
+/* Button used to reset search filters */
+.reset-btn {
+  background-color: #475569;
+  color: #ffffff;
+}
+
+/* Individual event card container */
+.event-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Event title styling for readability */
+.event-card h3 {
+  color: #065f46;
+  margin-bottom: 12px;
+}
+
+/* Event detail text styling */
+.event-card p {
+  color: #1f2937;
+  margin: 6px 0;
+}
+
+/* Delete action button for removing events */
+.delete-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+/* Button used to load additional events via pagination */
+.load-more-btn {
+  margin: 2rem auto;
+  display: block;
+  background: #0f766e;
+  color: #fff;
+  padding: 0.7rem 1.6rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover effect for load more button */
+.load-more-btn:hover {
+  background: #115e59;
+}
+
+/* Google Maps component used to display event location */
+google-map {
+  display: block;
+  margin: 14px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 180px;
+}
+
+/* Message displayed when no search results are found */
+.no-results {
+  text-align: center;
+  color: #ccc;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* Container for event-related action buttons */
+.event-actions {
+  margin-top: 12px;
+}
+
+/* Spacing between action buttons */
+.event-actions button {
+  margin-right: 10px;
+}
