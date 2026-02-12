@@ -1,0 +1,48 @@
+/* ===== GLOBAL BACKGROUND ===== */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(
+    circle at top,
+    #1f2933,
+    #0f172a 70%
+  );
+  color: #e5e7eb;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+/* ===== PAGE HEADING ===== */
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.page-underline {
+  width: 60px;
+  height: 4px;
+  background: #10b981;
+  border-radius: 999px;
+  margin-bottom: 40px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}

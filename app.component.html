@@ -1,0 +1,61 @@
+<!--
+  App Component Template
+  ----------------------
+  Root layout for the EventMate application.
+  Provides global navigation and hosts routed
+  components using Angular Router.
+-->
+
+<!-- Top navigation bar displayed across all pages -->
+<nav class="navbar">
+
+  <!-- Application title / branding -->
+  <h1>EventMate</h1>
+
+  <!-- Navigation links -->
+  <div>
+
+    <!-- Link to main event listing page -->
+    <a routerLink="/">Events</a>
+
+    <!--
+      Create Event link
+      Visible only to authenticated users
+    -->
+    <a *ngIf="authService.isLoggedIn()" routerLink="/create">
+      Create Event
+    </a>
+
+    <!--
+      Login link
+      Displayed only when the user is not authenticated
+    -->
+    <a *ngIf="!authService.isLoggedIn()" routerLink="/login">
+      Login
+    </a>
+
+    <!--
+      Register link
+      Displayed only when the user is not authenticated
+    -->
+    <a *ngIf="!authService.isLoggedIn()" routerLink="/register">
+      Register
+    </a>
+
+    <!--
+      Logout button
+      Available only to authenticated users
+      Triggers logout logic in the component
+    -->
+    <button *ngIf="authService.isLoggedIn()" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+</nav>
+
+<!--
+  Router outlet
+  Dynamically loads components based on the current route
+-->
+<router-outlet></router-outlet>

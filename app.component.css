@@ -1,0 +1,40 @@
+/*
+  App Component Styles
+  --------------------
+  Global layout styles for the root application component.
+  These styles define the appearance of the top navigation
+  area and ensure consistent layout across all routes.
+*/
+
+/* Main application navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #1976d2;
+  color: white;
+}
+
+/* Application title displayed in the navigation bar */
+.navbar h1 {
+  margin: 0;
+}
+
+/* Container for navigation links */
+.navbar div {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Base styling for navigation links */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Hover effect to indicate interactivity */
+.navbar a:hover {
+  text-decoration: underline;
+}
