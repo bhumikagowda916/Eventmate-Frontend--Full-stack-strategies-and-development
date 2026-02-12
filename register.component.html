@@ -1,0 +1,62 @@
+<!--
+  Register Component Template
+  ---------------------------
+  This template provides the user interface for new user registration.
+  It uses Angular template-driven forms with two-way data binding
+  to capture user credentials and submit them to the authentication service.
+-->
+
+<div class="auth-page">
+
+  <!-- Page heading indicating user registration -->
+  <h2 class="page-title">Register</h2>
+
+  <!-- Card container to visually group the registration form -->
+  <div class="auth-card">
+
+    <!--
+      Registration form
+      - Uses ngSubmit to trigger the register() method in the component
+      - Prevents a full page reload and keeps submission client-side
+    -->
+    <form (ngSubmit)="register()">
+
+      <!-- Username input field -->
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <!-- Password input field -->
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <!--
+        Error message display
+        Shown when registration fails or validation errors occur
+      -->
+      <p class="error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <!-- Submit button to initiate user registration -->
+      <button type="submit" class="primary-btn">
+        Register
+      </button>
+
+    </form>
+  </div>
+
+</div>

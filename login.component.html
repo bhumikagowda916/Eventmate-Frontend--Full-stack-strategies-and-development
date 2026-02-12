@@ -1,0 +1,62 @@
+<!--
+  Login Component Template
+  ------------------------
+  This template provides the user interface for authenticating users.
+  It uses Angular template-driven forms with two-way data binding
+  to capture credentials and submit them to the authentication service.
+-->
+
+<div class="auth-page">
+
+  <!-- Page heading to clearly indicate the current action -->
+  <h2 class="page-title">Login</h2>
+
+  <!-- Card container used to visually separate the login form -->
+  <div class="auth-card">
+
+    <!--
+      Login form
+      - Uses ngSubmit to trigger the login() method in the component
+      - Prevents full page reload and keeps authentication client-side
+    -->
+    <form (ngSubmit)="login()">
+
+      <!-- Username input field -->
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <!-- Password input field -->
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <!--
+        Error message display
+        Shown only when authentication fails or input validation errors occur
+      -->
+      <p class="error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <!-- Submit button to initiate login -->
+      <button type="submit" class="primary-btn">
+        Login
+      </button>
+
+    </form>
+  </div>
+
+</div>
